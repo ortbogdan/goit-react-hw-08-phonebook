@@ -10,3 +10,6 @@ export const getContacts = () => async dispatch => {
         dispatch(fetchContactsError(error))
     }
 };
+export const deleteContact = () => async dispatch => {
+    
+}

@@ -4,7 +4,8 @@ export async function fetchContacts() {
     const { data } = await axios.get('/contacts');
     return data;
 }
-export async function fetchContactById(id) {
-    const { data } = await axios.get(`/contacts/${id}`);
+export async function deleteContact(id) {
+    const { data } = await axios.delete(`/contacts/${id}`);
+    console.log(data); // delete contact
     return data;
 }
