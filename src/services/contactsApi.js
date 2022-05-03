@@ -7,3 +7,6 @@ export async function fetchContacts() {
 export async function deleteContactById(id) {
     return await axios.delete(`/contacts/${id}`);
 }
+export async function addContactToList(contact) {
+    return await axios.post('/contacts', contact);
+}
