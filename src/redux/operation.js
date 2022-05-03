@@ -1,5 +1,5 @@
-import { fetchContacts } from "../services/contactsApi";
-import { fetchContactsRequest, fetchContactsSuccess, fetchContactsError } from "./actions";
+import { fetchContacts, deleteContactById } from "../services/contactsApi";
+import { fetchContactsRequest, fetchContactsSuccess, fetchContactsError, deleteContactRequest, deleteContactSuccess, deleteContactError } from "./actions";
 
 export const getContacts = () => async dispatch => {
     dispatch(fetchContactsRequest());
@@ -10,6 +10,12 @@ export const getContacts = () => async dispatch => {
         dispatch(fetchContactsError(error))
     }
 };
-export const deleteContact = () => async dispatch => {
-    
+export const deleteContact = id => async dispatch => {
+    dispatch(deleteContactRequest());
+    try {
+        const {data} = await deleteContactById(id);
+        dispatch(deleteContactSuccess(data));
+    } catch (error) {
+        dispatch(deleteContactError(error))
+    }
 }
