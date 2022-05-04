@@ -5,7 +5,7 @@ export const App = () => {
   return (
     <Section title={"Phonebook"}>
        <ContactForm />
-      {/* <Filter /> */}
+      <Filter />
       <ContactList />
     </Section>
   );

@@ -1,31 +1,31 @@
 import { fetchContacts, deleteContactById, addContactToList } from "../services/contactsApi";
-import { fetchContactsRequest, fetchContactsSuccess, fetchContactsError, deleteContactRequest, deleteContactSuccess, deleteContactError, addContactRequest, addContactSuccess, addContactError   } from "./actions";
+import * as actions from "./actions";
 
 export const getContacts = () => async dispatch => {
-    dispatch(fetchContactsRequest());
+    dispatch(actions.fetchContactsRequest());
     try {
         const contacts = await fetchContacts();
-        dispatch(fetchContactsSuccess(contacts))
+        dispatch(actions.fetchContactsSuccess(contacts))
     } catch (error) {
-        dispatch(fetchContactsError(error))
+        dispatch(actions.fetchContactsError(error))
     }
 };
 export const deleteContact = id => async dispatch => {
-    dispatch(deleteContactRequest());
+    dispatch(actions.deleteContactRequest());
     try {
         const {data} = await deleteContactById(id);
-        dispatch(deleteContactSuccess(data));
+        dispatch(actions.deleteContactSuccess(data));
     } catch (error) {
-        dispatch(deleteContactError(error))
+        dispatch(actions.deleteContactError(error))
     }
 }
 
 export const addContact = contact => async dispatch => {
-    dispatch(addContactRequest());
+    dispatch(actions.addContactRequest());
     try {
-        const addedContact = await addContactToList(contact)
-        dispatch(addContactSuccess(addedContact));
+        const {data} = await addContactToList(contact);
+        dispatch(actions.addContactSuccess(data));
     } catch (error) {
-        dispatch(addContactError(error));
+        dispatch(actions.addContactError(error));
     }
 }

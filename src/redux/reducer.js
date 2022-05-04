@@ -1,27 +1,34 @@
-import { fetchContactsRequest, fetchContactsSuccess, fetchContactsError, deleteContactRequest, deleteContactSuccess, deleteContactError, addContactRequest, addContactSuccess, addContactError } from "./actions";
+import * as actions from "./actions";
 import { combineReducers, createReducer } from "@reduxjs/toolkit";
 const items = createReducer([], {
-  [fetchContactsSuccess]: (_, action) => action.payload,
-  [deleteContactSuccess]: (state, action) => state.filter((contact) => contact.id !== action.payload.id),
-  [addContactSuccess]: (state, action) => state
+  [actions.fetchContactsSuccess]: (_, action) => action.payload,
+  [actions.deleteContactSuccess]: (state, action) => state.filter((contact) => contact.id !== action.payload.id),
+  [actions.addContactSuccess]: (state, action) => [...state, action.payload]
 });
 
 const isLoading = createReducer(false, {
-  [fetchContactsRequest]: () => true,
-  [fetchContactsSuccess]: () => false,
-  [fetchContactsError]: () => false, 
-  [deleteContactRequest]: () => true,
-  [deleteContactSuccess]: () => false,
-  [deleteContactError]: () => false
+  [actions.fetchContactsRequest]: () => true,
+  [actions.fetchContactsSuccess]: () => false,
+  [actions.fetchContactsError]: () => false, 
+  [actions.deleteContactRequest]: () => true,
+  [actions.deleteContactSuccess]: () => false,
+  [actions.deleteContactError]: () => false,
+  [actions.addContactRequest]: () => true,
+  [actions.addContactSuccess]: () => false,
+  [actions.addContactError]: () => false
 });
 
 const error = createReducer(null, {
-  [fetchContactsError]: (_, action) => action.payload,
-  [deleteContactError]: (_, action) => action.payload
+  [actions.fetchContactsError]: (_, action) => action.payload,
+  [actions.deleteContactError]: (_, action) => action.payload,
+  [actions.addContactError]: (_, action) => action.payload
 })
-
+const filter = createReducer('', {
+  [actions.changeFilter]: (_, action) => action.payload
+}) 
 export default combineReducers({
   items,
   isLoading,
-  error
+  error,
+  filter
 })
