@@ -1,9 +1,10 @@
 import { FilterWrapper } from "./Filter.styled";
 import { useDispatch, useSelector } from "react-redux";
 import { changeFilter } from "../../redux/actions";
+import * as selectors from "../../redux/selectors";
 
 export const Filter = () => {
-  const filter = useSelector((state) => state.contacts.filter);
+  const filter = useSelector(selectors.getFilter);
   const dispatch = useDispatch();
   return (
     <FilterWrapper>
