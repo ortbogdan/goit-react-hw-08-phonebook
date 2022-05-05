@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getContacts, deleteContact } from "../../redux/operation";
 import * as selectors from '../../redux/selectors';
-// import { Loader } from "../Loader/Loader";
+
 
 export const ContactList = () => {
   const contacts = useSelector(selectors.getItems);
@@ -18,7 +18,7 @@ export const ContactList = () => {
     );
   };
   return ( <>
-    {isLoading && "...LOADING"}
+    {isLoading && "...LOADING!"}
     <Contacts>
       {(query === "" ? contacts : filteredContacts()).map(
         ({ name, id, phone }) => (
