@@ -4,7 +4,7 @@ export const App = () => {
   fetchContacts();
   return (
     <Section title={"Phonebook"}>
-       <ContactForm />
+      <ContactForm />
       <Filter />
       <ContactList />
     </Section>
