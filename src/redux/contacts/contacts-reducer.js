@@ -1,6 +1,6 @@
-import {changeFilter} from "./actions";
+import {changeFilter} from "./contacts-actions";
 import { combineReducers, createReducer } from "@reduxjs/toolkit";
-import { getContacts, deleteContact, addContact } from "./operation";
+import { getContacts, deleteContact, addContact } from "./contacts-operations";
 const items = createReducer([], {
   [getContacts.fulfilled]: (_, action) => action.payload,
   [deleteContact.fulfilled]: (state, action) => state.filter((contact) => contact.id !== action.payload.id),
