@@ -3,7 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getContacts, deleteContact } from "../../redux/contacts/contacts-operations";
 import * as selectors from '../../redux/contacts/contacts-selectors';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button';
 
 export const ContactList = () => {
   const contacts = useSelector(selectors.getItems);
@@ -24,7 +25,8 @@ export const ContactList = () => {
         ({ name, id, phone }) => (
           <ContactItem key={id}>
             {name}:<span>{phone}</span>
-            <button onClick={() => dispatch(deleteContact(id))}>Delete</button>
+            <Button variant="success" onClick={() => dispatch(deleteContact(id))}>Delete</Button>
+            
           </ContactItem>
         )
       )}

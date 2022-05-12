@@ -1,15 +1,13 @@
-import { Link } from "react-router-dom";
-
+import { NavLink } from "react-router-dom";
+import { Stack } from "react-bootstrap";
 export const AppBar = () => {
    return (
-    <div>
-      <h1>Home</h1>
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/register">Register</Link>
-        <Link to="/contacts">Contacts</Link>
-        <Link to="/login">Login</Link>
-      </nav>
-    </div>
+       
+<Stack direction="horizontal" gap={3}>
+  <div className="bg-light border"><NavLink to="/">Home</NavLink></div>
+  <div className="bg-light border"><NavLink to="/contacts" >Contacts</NavLink></div>
+  <div className="bg-light border ms-auto"><NavLink to="/register" >Register</NavLink></div>
+  <div className="bg-light border"><NavLink to="/login" >Login</NavLink></div>
+</Stack>
   );
 }

@@ -14,4 +14,5 @@ export const Contacts = styled.ul`
 export const ContactItem = styled.li`
   display: flex;
   justify-content: space-between;
+  align-items: center;
 `;
