@@ -8,7 +8,7 @@ const dispatch = useDispatch();
 const [email, setEmail] = useState('');
 const [password, setPassword] = useState('');
 
-  const handleChange = ({ target: { name, value } }) => {
+const handleChange = ({ target: { name, value } }) => {
     switch (name) {
       case 'email':
         return setEmail(value);
@@ -26,10 +26,9 @@ const [password, setPassword] = useState('');
     setPassword('');
   };
     return <Form>
-  <Form.Group className="mb-3">
+  <Form.Group className="mb-3" >
     <Form.Label>Email address</Form.Label>
-    <Form.Control type="email" placeholder="Enter email" value={email}
-            onChange={handleChange}/>
+    <Form.Control type="email" placeholder="Enter email" onChange={handleChange} value={email} name='email'/>
     <Form.Text className="text-muted">
       We'll never share your email with anyone else.
     </Form.Text>
@@ -37,8 +36,8 @@ const [password, setPassword] = useState('');
 
   <Form.Group className="mb-3">
     <Form.Label>Password</Form.Label>
-    <Form.Control type="password" placeholder="Password" value={password}
-    onChange={handleChange}/>
+    <Form.Control type="password" placeholder="Password"  onChange={handleChange} value={password} name="password"
+    />
   </Form.Group>
   
   <Button variant="primary" type="submit" onSubmit={handleSubmit}>

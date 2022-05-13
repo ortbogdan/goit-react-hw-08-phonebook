@@ -30,11 +30,11 @@ export const RegisterPage = () => {
     return <Form onSubmit={handleSubmit}>
     <Form.Group className="mb-3">
     <Form.Label>Name</Form.Label>
-    <Form.Control type="email" placeholder="Enter your name" value={name} onChange={handleChange}/>
+    <Form.Control type="text" placeholder="Enter your name" value={name} onChange={handleChange} name="name"/>
   </Form.Group>
   <Form.Group className="mb-3">
     <Form.Label>Email address</Form.Label>
-    <Form.Control type="email" placeholder="Enter email" value={email} onChange={handleChange} />
+    <Form.Control type="email" placeholder="Enter email" value={email} onChange={handleChange} name="email"/>
     <Form.Text className="text-muted">
       We'll never share your email with anyone else.
     </Form.Text>
@@ -42,7 +42,7 @@ export const RegisterPage = () => {
 
   <Form.Group className="mb-3" controlId="formBasicPassword">
     <Form.Label>Password</Form.Label>
-    <Form.Control type="password" placeholder="Password" value={password} onChange={handleChange}/>
+    <Form.Control type="password" placeholder="Password" value={password} onChange={handleChange} name="password"/>
   </Form.Group>
   
   <Button variant="primary" type="submit" >

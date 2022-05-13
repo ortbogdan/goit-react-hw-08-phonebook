@@ -1,9 +1,15 @@
-import { Section, AppBar } from "./components";
+import { Section, AppBar} from "./components";
 import { HomePage, ContactsPage, LoginPage, RegisterPage  } from "./pages";
-import { fetchContacts } from "./services/contactsApi";
+import { useEffect } from "react";
+import authOperations from '../src/redux/auth/auth-operations';
+import { useDispatch } from "react-redux";
 import { Routes, Route } from "react-router-dom";
 export const App = () => {
-  fetchContacts();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(authOperations.fetchCurrentUser());
+  }, [dispatch]);
   return (
     <Section>
       <AppBar/>
