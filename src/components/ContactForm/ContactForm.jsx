@@ -7,7 +7,7 @@ import * as selectors from '../../redux/contacts/contacts-selectors'
 export const ContactForm = () => {
   const contacts = useSelector(selectors.getItems);
   const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
+  const [number, setNumber] = useState("");
   const dispatch = useDispatch();
 
   const handleSubmit = (event) => {
@@ -19,12 +19,12 @@ export const ContactForm = () => {
       alert(`${name} is already in contacts.`);
       return;
     }
-    dispatch(addContact({ name, phone }));
+    dispatch(addContact({ name, number }));
     reset();
   };
   const reset = () => {
     setName("");
-    setPhone("");
+    setNumber("");
   };
   return (
     <Form onSubmit={handleSubmit}>
@@ -47,8 +47,8 @@ export const ContactForm = () => {
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         required
         id="number"
-        onChange={(e) => setPhone(e.target.value)}
-        value={phone}
+        onChange={(e) => setNumber(e.target.value)}
+        value={number}
       />
       <button type="submit">Add contact</button>
     </Form>

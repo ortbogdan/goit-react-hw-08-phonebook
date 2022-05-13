@@ -12,12 +12,18 @@ export const getContacts = createAsyncThunk('contacts/fetchContacts', async () =
     
 });
 export const deleteContact = createAsyncThunk('contacts/deleteContact', async (id) => {
-    const { data } = await deleteContactById(id);
+    try {
+        const { data } = await deleteContactById(id);
+        console.log(data);
     return data;
+    } catch (error) {
+        console.log(error);
+    }  
 });
 export const addContact = createAsyncThunk('contacts/addContact', async (contact) => {
     try {
-       const { data } = await addContactToList(contact);
+        const { data } = await addContactToList(contact);
+        console.log(data);
     return data 
     } catch (error) {
         console.log(error);

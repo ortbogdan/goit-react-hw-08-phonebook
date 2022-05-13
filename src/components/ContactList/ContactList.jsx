@@ -12,7 +12,11 @@ export const ContactList = () => {
   const isLoading = useSelector(selectors.getLoader);
   const dispatch = useDispatch();
   
-  useEffect(() => { dispatch(getContacts()) }, [dispatch]);
+  useEffect(() => {
+    // const usersContacts = getContacts();
+    // if (usersContacts.length === 0) return
+    dispatch(getContacts());
+  }, [dispatch]);
 
   const filteredContacts = () => {
     return contacts.filter((contact) =>
@@ -27,7 +31,6 @@ export const ContactList = () => {
           <ContactItem key={id}>
             {name}:<span>{number}</span>
             <Button variant="success" onClick={() => dispatch(deleteContact(id))}>Delete</Button>
-            
           </ContactItem>
         )
       )}
