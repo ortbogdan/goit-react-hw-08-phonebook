@@ -13,6 +13,7 @@ export const ContactList = () => {
   const dispatch = useDispatch();
   
   useEffect(() => { dispatch(getContacts()) }, [dispatch]);
+
   const filteredContacts = () => {
     return contacts.filter((contact) =>
       contact.name.toLowerCase().includes(query)
@@ -22,9 +23,9 @@ export const ContactList = () => {
     {isLoading && "...LOADING!"}
     <Contacts>
       {(query === "" ? contacts : filteredContacts()).map(
-        ({ name, id, phone }) => (
+        ({ name, id, number }) => (
           <ContactItem key={id}>
-            {name}:<span>{phone}</span>
+            {name}:<span>{number}</span>
             <Button variant="success" onClick={() => dispatch(deleteContact(id))}>Delete</Button>
             
           </ContactItem>

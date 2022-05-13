@@ -2,14 +2,25 @@ import { fetchContacts, deleteContactById, addContactToList } from "../../servic
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const getContacts = createAsyncThunk('contacts/fetchContacts', async () => {
-    const contacts = await fetchContacts();
-    return contacts;
+    try {
+        const contacts = await fetchContacts();
+        console.log(contacts);
+    return contacts;  
+    } catch (error) {
+        console.log(error);
+    }
+    
 });
 export const deleteContact = createAsyncThunk('contacts/deleteContact', async (id) => {
     const { data } = await deleteContactById(id);
     return data;
 });
 export const addContact = createAsyncThunk('contacts/addContact', async (contact) => {
-    const { data } = await addContactToList(contact);
-    return data
+    try {
+       const { data } = await addContactToList(contact);
+    return data 
+    } catch (error) {
+        console.log(error);
+    }
+    
 })
