@@ -21,6 +21,7 @@ const ContactsPage = createChunk('ContactsPage');
 
 export const App = () => {
   const dispatch = useDispatch();
+  const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrentUser);
   const userToken = useSelector(authSelectors.getUserToken)
   useEffect(() => {
     
@@ -29,7 +30,7 @@ export const App = () => {
     operations.token.set(userToken)
   }, [dispatch, userToken]);
   return (
-    
+    !isFetchingCurrentUser &&
       <Suspense fallback={<Spinner animation="border" variant="success" />}>
       <AppBar />
       <Section>
@@ -41,7 +42,5 @@ export const App = () => {
         <Route path="contacts" element={<PrivateRoute><ContactsPage/></PrivateRoute>} exact/>
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes></Section></Suspense>
-
-    
   );
 };
