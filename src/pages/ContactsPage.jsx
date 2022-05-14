@@ -1,9 +1,9 @@
 
 import { Filter, ContactForm, ContactList } from "../components"
 export const ContactsPage = () => {
-    return <div>
+    return <main>
       <ContactForm />
       <Filter />
       <ContactList />
-    </div>
+    </main>
 }

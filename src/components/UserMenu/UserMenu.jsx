@@ -9,13 +9,12 @@ export const UserMenu = () => {
   const email = useSelector(authSelectors.getUserEmail);
   
 
-  return (
-      <Stack direction="horizontal" gap={3}>
-      <div className="bg-light border ms-auto"><img src={avatar} alt="default avatar" width="32"/></div> 
+  return (<Stack direction="horizontal" gap={3}>
+      <div className="bg-light border"><img src={avatar} alt="default avatar" width="32"/></div> 
       <div><span>Welcome, {email}</span></div>
       <Button variant="info" onClick={() => dispatch(authOperations.logOut())}>
        Log Out
       </Button>
-    </Stack>
+    </Stack>  
   );
 }

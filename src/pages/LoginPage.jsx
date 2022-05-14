@@ -25,7 +25,7 @@ const handleChange = ({ target: { name, value } }) => {
     setEmail('');
     setPassword('');
   };
-    return <Form>
+  return <main><Form>
   <Form.Group className="mb-3" >
     <Form.Label>Email address</Form.Label>
     <Form.Control type="email" placeholder="Enter email" onChange={handleChange} value={email} name='email'/>
@@ -43,5 +43,5 @@ const handleChange = ({ target: { name, value } }) => {
   <Button variant="primary" type="submit" onSubmit={handleSubmit}>
     Login
   </Button>
-</Form>
+</Form></main>
 }

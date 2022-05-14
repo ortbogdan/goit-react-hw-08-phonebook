@@ -23,3 +23,7 @@ export const NavItem = styled.div`
     }
 `
 
+export const Header = styled.header`
+  width:100%;
+`
+

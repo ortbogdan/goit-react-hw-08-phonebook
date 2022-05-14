@@ -27,7 +27,7 @@ export const RegisterPage = () => {
     setEmail('');
     setPassword('');
     };
-    return <Form onSubmit={handleSubmit}>
+  return <main><Form onSubmit={handleSubmit}>
     <Form.Group className="mb-3">
     <Form.Label>Name</Form.Label>
     <Form.Control type="text" placeholder="Enter your name" value={name} onChange={handleChange} name="name"/>
@@ -48,5 +48,6 @@ export const RegisterPage = () => {
   <Button variant="primary" type="submit" >
     Sign Up
   </Button>
-</Form>
+</Form></main>
+  
 }

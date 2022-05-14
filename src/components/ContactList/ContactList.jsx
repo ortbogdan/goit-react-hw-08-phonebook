@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { getContacts, deleteContact } from "../../redux/contacts/contacts-operations";
 import * as selectors from '../../redux/contacts/contacts-selectors';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Button from 'react-bootstrap/Button';
+import {Button, Spinner} from 'react-bootstrap';
 
 export const ContactList = () => {
   const contacts = useSelector(selectors.getItems);
@@ -13,8 +13,6 @@ export const ContactList = () => {
   const dispatch = useDispatch();
   
   useEffect(() => {
-    // const usersContacts = getContacts();
-    // if (usersContacts.length === 0) return
     dispatch(getContacts());
   }, [dispatch]);
 
@@ -24,7 +22,7 @@ export const ContactList = () => {
     );
   };
   return ( <>
-    {isLoading && "...LOADING!"}
+    {isLoading && <Spinner animation="border" variant="success" />}
     <Contacts>
       {(query === "" ? contacts : filteredContacts()).map(
         ({ name, id, number }) => (

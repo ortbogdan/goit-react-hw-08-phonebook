@@ -3,7 +3,7 @@ import { combineReducers, createReducer } from "@reduxjs/toolkit";
 import { getContacts, deleteContact, addContact } from "./contacts-operations";
 const items = createReducer([], {
   [getContacts.fulfilled]: (_, action) => action.payload,
-  [deleteContact.fulfilled]: (state, action) => state.filter((contact) => contact.id !== action.payload.id),
+  [deleteContact.fulfilled]: (state, action) => state.filter((contact) => contact.id !== action.payload),
   [addContact.fulfilled]: (state, action) => [ action.payload, ...state]
 });
 
