@@ -9,8 +9,7 @@ export const AppBar = () => {
 
   return <Header><Stack direction="horizontal" gap={3}>
   <NavItem className="bg-light border"><NavLink to="/">Home</NavLink></NavItem>
-  <NavItem className="bg-light border"><NavLink to="/contacts">Contacts</NavLink></NavItem>
-    {isLoggedIn ? <div className="ms-auto"><UserMenu/></div> : <><NavItem className="bg-light border ms-auto"><NavLink to="/register" >Register</NavLink></NavItem>
+    {isLoggedIn ? <><NavItem className="bg-light border"><NavLink to="/contacts">Contacts</NavLink></NavItem><div className="ms-auto"><UserMenu/></div></> : <><NavItem className="bg-light border ms-auto"><NavLink to="/register" >Register</NavLink></NavItem>
   <NavItem className="bg-light border"><NavLink to="/login">Login</NavLink></NavItem></>}
   </Stack></Header>
 }

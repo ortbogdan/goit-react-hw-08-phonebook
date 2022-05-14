@@ -25,5 +25,6 @@ export const NavItem = styled.div`
 
 export const Header = styled.header`
   width:100%;
+  padding: 10px 15px;
 `
 
