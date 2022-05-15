@@ -4,7 +4,7 @@ import authOperations from './redux/auth/auth-operations';
 import authSelectors from "./redux/auth/auth-selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { Routes, Route, Navigate } from "react-router-dom";
-import operations from "./redux/auth/auth-operations";
+// import operations from "./redux/auth/auth-operations";
 import { Spinner } from "react-bootstrap";
 
 const createChunk = componentName => {
@@ -22,13 +22,11 @@ const ContactsPage = createChunk('ContactsPage');
 export const App = () => {
   const dispatch = useDispatch();
   const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrentUser);
-  const userToken = useSelector(authSelectors.getUserToken)
+  // const userToken = useSelector(authSelectors.getUserToken)
   useEffect(() => {
-    
     dispatch(authOperations.fetchCurrentUser()
     )
-    operations.token.set(userToken)
-  }, [dispatch, userToken]);
+  }, [dispatch]);
   return (
     !isFetchingCurrentUser &&
       <Suspense fallback={<Spinner animation="border" variant="success" />}>

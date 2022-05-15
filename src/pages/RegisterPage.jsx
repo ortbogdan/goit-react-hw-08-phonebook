@@ -22,6 +22,15 @@ export const RegisterPage = () => {
   };
     const handleSubmit = e => {
     e.preventDefault();
+    if (!name.trim()) {
+      return alert('Please enter your name');
+      }
+    if (!email.trim()) {
+      return alert('Please enter your email');
+      }
+    if (!password.trim()) {
+      return alert('Please enter your password');
+    }
     dispatch(operations.register({ name, email, password }));
     setName('');
     setEmail('');
