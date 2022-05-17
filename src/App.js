@@ -31,7 +31,7 @@ export const App = () => {
       <AppBar />
       <Section>
         <Routes>
-        <Route path="/" element={<PublicRoute restricted><HomePage/></PublicRoute>} />
+        <Route path="/" element={<PublicRoute restricted={false}><HomePage/></PublicRoute>} />
         <Route path="register" element={<PublicRoute restricted><RegisterPage/></PublicRoute>} exact/>
         <Route path="login" element={<PublicRoute restricted><LoginPage/></PublicRoute>} exact/>
         {isLoggedIn && <Route path="contacts" element={<PrivateRoute><ContactsPage/></PrivateRoute>} exact/>}
